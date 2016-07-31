@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
+import traceback
+import os, sys, inspect
+
+libPath = os.path.abspath(os.path.join(os.path.dirname(__file__), "./../"))
+if libPath not in sys.path:
+    sys.path.insert(0, libPath)
+
 from enocean.consolelogger import init_logging
 import enocean.utils
 from enocean.communicators.serialcommunicator import SerialCommunicator
 from enocean.protocol.packet import RadioPacket
 from enocean.protocol.constants import PACKET, RORG
-import sys
-import traceback
 
 try:
     import queue
